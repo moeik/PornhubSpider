@@ -4,13 +4,14 @@
 ### 发布时间：2020.05.23
 
 ### 环境&模块:
-
-#### 开发环境：Python3 Win10 PyCharm
-#### 测试环境：Win10  Ubuntu  Centos  Debian
-#### 模块：re，requests，lxml，time，os
+**开发环境：Python3 Win10 PyCharm**
+</br>
+**测试环境：Win10  Ubuntu  Centos  Debian**
+</br>
+**模块：re，requests，lxml，time，os**
 
 ### 实现功能：
-- 所有下载视频均为最高清晰度
+- 所有下载视频均为最高清晰度  4k想屁吃
 - 解析单个视频真实链接
 	- 输出真实链接
 	- 选择是否下载
