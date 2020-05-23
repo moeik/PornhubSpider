@@ -4,20 +4,22 @@
 ### 发布时间：2020.05.23
 
 ### 环境&模块:
-**开发环境：Python3 Win10 PyCharm**
+**:cake:开发环境：Python3 Win10 PyCharm**
 </br>
-**测试环境：Win10  Ubuntu  Centos  Debian**
+**:lollipop:测试环境：Win10  Ubuntu  Centos  Debian**
 </br>
-**模块：re，requests，lxml，time，os**
+**:fish_cake:模块：re，requests，lxml，time，os**
 
 ### 实现功能：
-- 所有下载视频均为最高清晰度  4k想屁吃
+- 所有下载视频均为最高清晰度  4k在想:peach:
 - 解析单个视频真实链接
 	- 输出真实链接
 	- 选择是否下载
 - 解析某个页面所有视频真实链接 可批量下载
 - 保存视频到相应标题目录下mp4文件以当日时间命名
 - 保存封面到相应标题目录下jpg文件以Cover命名
+### :warning:PS：由于官方限制，解析到的视频链接只能通过该解析的IP进行下载！<br>真实链接放到其他IP进行访问会出现403，无权访问。
+
 
 ## 使用：
 
