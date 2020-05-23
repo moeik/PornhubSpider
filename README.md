@@ -26,15 +26,15 @@
 ### Python3环境
 **Centos:**
 ```shell
-yum install python3 pip3 -y
+yum install python3 python-pip3 -y
 ```
 **Debian:**
 ```shell
-apt-get install python3 pip3 -y
+apt-get install python3 python-pip3 -y
 ```
 **Ubuntu:**
 ```shell
-sudo apt-get install python3 pip3 -y
+sudo apt-get install python3 python-pip3 -y
 ```
 
 
@@ -51,7 +51,9 @@ git clone https://github.com/moeik/PornhubSpider.git && cd PornhubSpider
 ```
 
 **3.运行**
+```shell
 python3 app.py
+```
 
 ### 目录结构：
 ```
