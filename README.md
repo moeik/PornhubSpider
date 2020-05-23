@@ -4,11 +4,13 @@
 ### 发布时间：2020.05.23
 
 ### 环境&模块:
-**开发环境：Python3 Win10 PyCharm**\n
-**测试环境：Win10  Ubuntu  Centos  Debian**\n
-**模块：re，requests，lxml，time，os**\n
+
+#### 开发环境：Python3 Win10 PyCharm
+#### 测试环境：Win10  Ubuntu  Centos  Debian
+#### 模块：re，requests，lxml，time，os
 
 ### 实现功能：
+- 所有下载视频均为最高清晰度
 - 解析单个视频真实链接
 	- 输出真实链接
 	- 选择是否下载
