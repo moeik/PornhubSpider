@@ -37,7 +37,6 @@ apt-get install python3 python3-pip -y
 sudo apt-get install python3 python3-pip -y
 ```
 
-
 ### 模块安装&项目拉取
 
 **1.安装所需模块**
@@ -54,6 +53,35 @@ git clone https://github.com/moeik/PornhubSpider.git && cd PornhubSpider
 ```shell
 python3 app.py
 ```
+------------------
+### 进程守护
+#### 安装Screen
+**Centos:**
+```shell
+yum install screen -y
+```
+**Debian:**
+```shell
+apt-get install screen -y
+```
+**Ubuntu:**
+```shell
+sudo apt-get install screen -y
+```
+#### 守护进程
+
+**新建窗口**
+```shell
+screen -S <name>
+```
+**返回窗口**
+```shell
+screen -r <name>
+```
+**```<name>```为自定义名称，如：```screen -S PH```**
+**在新窗口中运行```python app.py```即可**
+
+----------------
 
 ### 目录结构：
 ```
