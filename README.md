@@ -11,7 +11,7 @@
 **:fish_cake:模块：re，requests，lxml，time，os**
 
 ### 实现功能：
-- 所有下载视频均为最高清晰度  4k在想:peach:
+- 所有下载视频均为最高清晰度</br>4k在想:peach:
 - 解析单个视频真实链接
 	- 输出真实链接
 	- 选择是否下载
@@ -26,15 +26,15 @@
 ### Python3环境
 **Centos:**
 ```shell
-yum install python3 pip3 -y
+yum install python3 python3-pip -y
 ```
 **Debian:**
 ```shell
-apt-get install python3 pip3 -y
+apt-get install python3 python3-pip -y
 ```
 **Ubuntu:**
 ```shell
-sudo apt-get install python3 pip3 -y
+sudo apt-get install python3 python3-pip -y
 ```
 
 
@@ -51,7 +51,9 @@ git clone https://github.com/moeik/PornhubSpider.git && cd PornhubSpider
 ```
 
 **3.运行**
+```shell
 python3 app.py
+```
 
 ### 目录结构：
 ```
