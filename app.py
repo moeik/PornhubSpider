@@ -65,7 +65,7 @@ def Get_Video_Link(x):
     sta = re.findall('(.*?)quality_',var_end)
     end = re.findall('quality_\d{3,4}p=(.*?);',var_end)
     file_handle=open('GetPHV.py',mode='w')
-    file_handle.write(sta[0]+'\n'+'url = '+end[0]+'\nfile_handle=open("url.txt",mode="w")'+'\nfile_handle.write(url)'+'\nfile_handle.close()')#+'\nprint(url)')
+    file_handle.write(sta[0]+'\n'+'url = '+end[0]+'\nfile_handle=open("url.txt",mode="w")'+'\nfile_handle.write(url)'+'\nfile_handle.close()')
     file_handle.close()
     with open('GetPHV.py','r') as f:
         exec(f.read())
@@ -79,6 +79,7 @@ def Get_Img(x):
 
 def Download():
     DVLink = Read_file('url.txt')
+    FileDel()
     NowTime = time.strftime("%Y%m%d", time.localtime())
     r = requests.get(DVLink, stream=True)
     f = open(r"Pornhub/" + Title + "/" + NowTime + ".mp4", "wb")
@@ -87,6 +88,23 @@ def Download():
            f.write(chunk)
 
 def cs1():
+    global Title
+    url = input("Video Url:")
+    url = re.sub(" ","",url)
+    Get_Video_Link(url)
+    Title = Get_Page(url).xpath('//*[@class="inlineFree"]/text()')
+    Title = re.sub("[\n\t\\\/:*?,，!！？。()（）.\"<=->|\]\[]", "", Title[0])
+    Path = "Pornhub/" + Title + "/"
+    print('标题：'+Title + '\n' + Read_file('url.txt') + '\n')
+    Download_Chioce = input("是否下载当前视频？(y/n)")
+    if Download_Chioce == 'y' or Download_Chioce == 'Y':
+        Mkdir(Path)
+        Get_Img(url)
+        Download()
+    else:
+        pass
+
+def cs2():
     global Title
     url = input("Page Url:")
     url = re.sub(" ","",url)
@@ -103,32 +121,14 @@ def cs1():
                 Mkdir(Path)
                 Get_Img(url)
                 Download()
-                FileDel()
             except:
                 continue
     else:
         pass
 
-def cs2():
-    global Title
-    url = input("Video Url:")
-    url = re.sub(" ","",url)
-    Get_Video_Link(url)
-    Title = Get_Page(url).xpath('//*[@class="inlineFree"]/text()')
-    Title = re.sub("[\n\t\\\/:*?,，!！？。()（）.\"<=->|\]\[]", "", Title[0])
-    Path = "Pornhub/" + Title + "/"
-    print('标题：'+Title + '\n' + Read_file('url.txt') + '\n')
-    Download_Chioce = input("是否下载当前视频？(y/n)")
-    if Download_Chioce == 'y' or Download_Chioce == 'Y':
-        Mkdir(Path)
-        Get_Img(url)
-        Download()
-        FileDel()
-    else:
-        pass
 
 def start():
-    cs = int(input("\033[32m解析选项：\n1.解析页面视频\n2.解析单个视频\n请选择："))
+    cs = int(input("\033[32m解析选项：\n1.解析单个视频\n2.解析页面视频\n请选择："))
     if cs == 1:
         cs1()
     elif cs == 2:
