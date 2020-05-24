@@ -55,6 +55,12 @@ git clone https://github.com/moeik/PornhubSpider.git && cd PornhubSpider
 python3 app.py
 ```
 ------------------
+### 快捷方式
+```shell
+chmod +x app.py
+ln -sf /绝对路径/app.py /usr/bin/ph
+```
+随后在任意目录运行ph即可
 ### 进程守护
 #### 安装Screen
 **Centos:**
