@@ -20,6 +20,11 @@ def Mkdir(path):
     else:
         pass
 
+def FileDel():
+    import os
+    os.remove('url.txt')
+    os.remove('GetPHV.py')
+
 def Read_file(filepath):
     with open(filepath) as fp:
         content=fp.read()
@@ -33,10 +38,14 @@ def Get_Page(x):
     return Page
 
 def Get_Url(x):
-    VideoUrl = Get_Page(x).xpath('//*[@id="videoCategory"]/li/div/div/a/@href')
+    if 'search?search=' in x:
+        VideoUrl = Get_Page(x).xpath('//*[@id="videoSearchResult"]/li/div/div/a/@href')
+        VideoTitle = Get_Page(x).xpath('//*[@id="videoSearchResult"]/li/div/div/span/a/text()')
+    else:
+        VideoUrl = Get_Page(x).xpath('//*[@id="videoCategory"]/li/div/div/a/@href')
+        VideoTitle = Get_Page(x).xpath('//*[@id="videoCategory"]/li/div/div/span/a/text()')
     for i in range(1, len(VideoUrl)):
         url_list.append(url_sta + VideoUrl[i])
-    VideoTitle = Get_Page(x).xpath('//*[@id="videoCategory"]/li/div/div/span/a/text()')
     for i in range(len(VideoTitle)):
         title = re.sub("[\n\t\\\/:*?,，。 .\"<=->|\]\[]","",VideoTitle[i])
         title_list.append(title)
@@ -94,6 +103,7 @@ def cs1():
                 Mkdir(Path)
                 Get_Img(url)
                 Download()
+                FileDel()
             except:
                 continue
     else:
@@ -113,6 +123,7 @@ def cs2():
         Mkdir(Path)
         Get_Img(url)
         Download()
+        FileDel()
     else:
         pass
 
