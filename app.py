@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import re,requests,time
+import re,requests,time,os
 from lxml import etree
 
 url_sta = "https://cn.pornhub.com"
@@ -10,7 +10,6 @@ title_list = []
 headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Safari/537.36"}
 
 def Mkdir(path):
-    import os
     path = path.strip()
     path = path.rstrip("\\")
     isExists = os.path.exists(path)
@@ -21,9 +20,7 @@ def Mkdir(path):
         pass
 
 def FileDel():
-    import os
     os.remove('url.txt')
-    os.remove('GetPHV.py')
 
 def Read_file(filepath):
     with open(filepath) as fp:
@@ -47,7 +44,7 @@ def Get_Url(x):
     for i in range(1, len(VideoUrl)):
         url_list.append(url_sta + VideoUrl[i])
     for i in range(len(VideoTitle)):
-        title = re.sub("[\n\t\\\/:*?,，。 .\"<=->|\]\[]","",VideoTitle[i])
+        title = re.sub("[\n\t\\\/:*?,，!！？。()（ ）.\"<=->|\]\[]","",VideoTitle[i])
         title_list.append(title)
 
 def Get_Video_Link(x):
@@ -64,11 +61,9 @@ def Get_Video_Link(x):
     var_end =  re.sub('/\*(.*?)\*/','',var_start)
     sta = re.findall('(.*?)quality_',var_end)
     end = re.findall('quality_\d{3,4}p=(.*?);',var_end)
-    file_handle=open('GetPHV.py',mode='w')
-    file_handle.write(sta[0]+'\n'+'url = '+end[0]+'\nfile_handle=open("url.txt",mode="w")'+'\nfile_handle.write(url)'+'\nfile_handle.close()')
-    file_handle.close()
-    with open('GetPHV.py','r') as f:
-        exec(f.read())
+    WriteUrl = sta[0]+'\n'+'url = '+end[0]+'\nfile_handle=open("url.txt",mode="w")'+\
+               '\nfile_handle.write(url)'+'\nfile_handle.close()'
+    exec(WriteUrl)
 
 def Get_Img(x):
     ImgUrl = Get_Page(x).xpath('/html/head/meta[19]/@content')
