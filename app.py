@@ -78,7 +78,7 @@ def Download():
     NowTime = time.strftime("%Y%m%d", time.localtime())
     r = requests.get(DVLink, stream=True)
     f = open(r"Pornhub/" + Title + "/" + NowTime + ".mp4", "wb")
-    for chunk in r.iter_content(chunk_size=102400):
+    for chunk in r.iter_content(chunk_size=1024):
        if chunk:
            f.write(chunk)
 
