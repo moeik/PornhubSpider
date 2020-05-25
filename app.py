@@ -88,7 +88,7 @@ def cs1():
     url = re.sub(" ","",url)
     Get_Video_Link(url)
     Title = Get_Page(url).xpath('//*[@class="inlineFree"]/text()')
-    Title = re.sub("[\n\t\\\/:*?,，!！？。()（）.\"<=->|\]\[]", "", Title[0])
+    Title = re.sub("[\n\t\\\/:*?,，!！？。()（ ）.\"<=->|\]\[]", "", Title[0])
     Path = "Pornhub/" + Title + "/"
     print('标题：'+Title + '\n' + Read_file('url.txt') + '\n')
     Download_Chioce = input("是否下载当前视频？(y/n)")
@@ -110,7 +110,7 @@ def cs2():
             try:
                 url = url_list[i]
                 Get_Video_Link(url)
-                Title = re.sub("[\n\t\\\/:*?,，!！？。()（）.\"<=->|\]\[]", "", title_list[i])
+                Title = re.sub("[\n\t\\\/:*?,，!！？。()（ ）.\"<=->|\]\[]", "", title_list[i])
                 Path = "Pornhub/" + Title + "/"
                 print('标题：'+Title+'\n'+Read_file('url.txt')+'\n')
                 Mkdir(Path)
