@@ -85,7 +85,7 @@ screen -S <name>
 ```shell
 screen -r <name>
 ```
-**在新窗口中运行```python app.py```即可**
+**在新窗口中运行```python3 app.py```即可**
 </br>
 **PS:```<name>```为自定义名称，如：```screen -S PH```**
 
